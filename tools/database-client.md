@@ -8,6 +8,8 @@ SQL Workbench/J is a free, DBMS-independent, cross-platform SQL query tool. It i
     Download latest SQLWorkbench/J installer from [here](http://www.sql-workbench.net/downloads.html)
 
     Follow the instructions in [Guide](http://www.sql-workbench.net/manual/install.html)
+    
+    Install latest version of Java from [here](https://java.com/en/download/) (currently Version 8 Update 211) 
 
 2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/raw/master/doordahost/jdbc/DoordaHostJDBC_309d.jar)
 
