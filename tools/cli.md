@@ -18,7 +18,7 @@ CLI [here](https://github.com/Doorda/drivers-cli/releases/download/309d/doordaho
 ./doordahost.jar \
 --server https://host.doorda.com \
 --user user1 \
---password \
+--password \ ## Do not add your pasword here. You will be prompt for it
 --catalog doordastats-snapshot \
 --schema doordastats-snapshot
 ```
@@ -30,7 +30,7 @@ Open Powershell
 java -jar c:\..\doordahost.jar \
 --server https://host.doorda.com \
 --user user1 \
---password \
+--password \ ## Do not add your pasword here. You will be prompt for it
 --catalog doordastats-snapshot \
 --schema doordastats-snapshot
 
