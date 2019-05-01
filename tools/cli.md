@@ -8,13 +8,14 @@ Jave 8
 
 ## Download CLI
 
-CLI [here](https://github.com/Doorda/drivers-cli/releases/download/309d/doordahost)
+CLI [here](https://github.com/Doorda/drivers-cli/releases/download/309d/doordahost.jar)
 
 
 ## Usage
 
+### Unix
 ```bash
-./doordahost \
+./doordahost.jar \
 --server https://host.doorda.com \
 --user user1 \
 --password \
@@ -22,7 +23,20 @@ CLI [here](https://github.com/Doorda/drivers-cli/releases/download/309d/doordaho
 --schema doordastats-snapshot
 ```
 
-### Export table to file
+### Windows
+
+Open Powershell
+```
+java -jar c:\..\doordahost.jar \
+--server https://host.doorda.com \
+--user user1 \
+--password \
+--catalog doordastats-snapshot \
+--schema doordastats-snapshot
+
+```
+
+### Export table to file (UNIX)
 
 Modify `username`, `PRESTO_PASSWORD`, `catalog`, `schema`, `query_string`, `output_format` and `output_location`
 
