@@ -14,7 +14,7 @@ This package interacts with Doorda Hosted service on Presto to query data
 ```r
 install.packages("devtools")
 require("devtools")
-devtools::install_github("doorda/doorda-r-sdk")
+devtools::install_github("doorda/doorda-r-sdk", dependencies=TRUE)
 ```
 
 ## Usage 
