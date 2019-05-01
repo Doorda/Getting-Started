@@ -38,7 +38,7 @@ python setup.py install
     ```python
     from doorda_sdk.host import client
 
-    conn = client.connect(user="username",
+    conn = client.connect(username="username",
                           password="password",
                           catalog="catalog_name",
                           schema="schema_name")
