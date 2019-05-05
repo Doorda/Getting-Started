@@ -19,9 +19,9 @@ $ pip install doorda-sdk
 1) https://github.com/Doorda/doorda-python-sdk/releases
 
 ```bash
-wget https://github.com/Doorda/doorda-python-sdk/archive/1.0.4.zip
+wget https://github.com/Doorda/doorda-python-sdk/archive/1.0.7.zip
 
-unzip 1.0.4.zip
+unzip 1.0.7.zip
 
 ```
 
@@ -59,10 +59,10 @@ python setup.py install
     rows = cursor.fetchmany(size=10)
     
     # Get list of column names
-    cursor.col_names()
+    cursor.col_names
     
     # Get column names mapped to data types
-    cursor.col_types()
+    cursor.col_types
     ```
 
 3) Simplified Functions
@@ -73,6 +73,9 @@ python setup.py install
     
     # List all catalogs
     rows = cursor.show_catalogs()
+    
+    # List all tables in Schema
+    rows = cursor.show_tables("catalog_name", "schema_name")
     
     # Get number of rows
     rows = cursor.table_stats(catalog="catalog_name", 
