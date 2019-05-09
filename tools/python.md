@@ -19,9 +19,9 @@ $ pip install doorda-sdk
 1) https://github.com/Doorda/doorda-python-sdk/releases
 
 ```bash
-wget https://github.com/Doorda/doorda-python-sdk/archive/1.0.8.zip
+wget https://github.com/Doorda/doorda-python-sdk/archive/1.0.9.zip
 
-unzip 1.0.8.zip
+unzip 1.0.9.zip
 
 ```
 
@@ -48,6 +48,11 @@ python setup.py install
 2) Execute Queries
     ```python
     cursor.execute("SELECT * FROM table_name")
+    
+    # Returns generator of results
+    # Does not put result into memory. Iterates through rows in a streaming fashion.
+    for row in cursor.iter_result():
+        # Do something with row
     
     # Fetch all results
     rows = cursor.fetchall()
@@ -82,6 +87,9 @@ python setup.py install
                               schema="schema_name",
                               table="table_name")
     ```
+
+## Sample ETL Integration
+1) [Glue](https://github.com/Doorda/doorda-python-sdk/tree/master/examples/glue)
 
 
 Back to [List of Tools](README.md#list-of-supported-tools)
