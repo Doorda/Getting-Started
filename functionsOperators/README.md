@@ -250,5 +250,82 @@ Returns the sample variance of all input values.
     
     Returns all the values in the map `x`.
 
+## Regular Expression
+
+**regexp_extract_all**(*string*,*pattern*) -> `array(varchar)`
+Returns the substrings matched by regex `pattern` in `string`
+
+```sql
+SELECT regexp_extract_all('1a 2b 14m', '\d+'); -- [1, 2, 14]
+```
+
+
+**regexp_extract_all**(*string*,*pattern*, *group*) -> `array(varchar)`
+Finds all occurrences of the regex `pattern` in `string` and returns `group`
+
+```sql
+SELECT regexp_extract_all('1a 2b 14m', '(\d+)([a-z]+)', 2); -- ['a', 'b', 'm']
+```
+
+
+**regexp_extract**(*string*, *pattern*) -> `varchar`
+Returns the first substring matched by the regex `pattern` in `string`
+
+```sql
+SELECT regexp_extract('1a 2b 14m', '\d+'); -- 1
+```
+
+
+**regexp_extract**(*string*, *pattern*, *group*) -> `varchar`
+Finds the first occurrence of the regex `pattern` in `string` and returns the `group`
+
+```sql
+SELECT regexp_extract('1a 2b 14m', '(\d+)([a-z]+)', 2); -- 'a'
+```
+
+
+**regexp_like**(*string*, *pattern*) -> `boolean`
+Evaluates the regex `pattern` and determines if it is contained within `string`.
+
+This is similar to the `LIKE` operator but performs a `contains` operation` rather than a `match` operation.
+
+```sql
+SELECT regexp_like('1a 2b 14m', '\d+b'); -- true
+```
+
+
+**regexp_replace**(*string*, *pattern*) -> `varchar`
+Removes every instance of the substring matched by the regex `pattern` from `string`:
+
+```sql
+SELECT regexp_replace('1a 2b 14m', '\d+[ab] '); -- '14m'
+```
+
+
+**regexp_replace**(*string*, *pattern*, *replacement*) -> `varchar`
+Removes every instance of the substring matched by the regex `pattern` from `string` with `replacement`
+
+```sql
+SELECT regexp_replace('1a 2b 14m', '(\d+)([ab]) ', '3c$2 '); -- '3ca 3cb 14m'
+```
+
+
+**regexp_replace**(*string*, *pattern*, *function*) -> `varchar`
+Removes every instance of the substring matched by the regex `pattern` from `string` using `function`
+
+```sql
+SELECT regexp_replace('new york', '(\w)(\w*)', x -> upper(x[1]) || lower(x[2])); --'New York'
+```
+
+
+**regexp_split**(*string*, *pattern*) -> `array(varchar)`
+Splits `string` using the regex `pattern` and returns an array. Trailing empty strings are preserved.
+
+```sql
+SELECT regexp_split('1a 2b 14m', '\s*[a-z]+\s*'); -- [1, 2, 14, ]
+```
+
+
+
 
 Back to [Tables of Content](../README.md#getting-started-guide-to-host)
