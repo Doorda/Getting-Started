@@ -16,8 +16,8 @@ All tables can be joined by `company_number` column
     So the snapshot consists of the latest entry for each company on the fixed day of each month.
     
     Catalog = `doordabiz_snapshot`  
-    Schema = `doordabiz_snapshot`
-    Query Format:
+    Schema = `doordabiz_snapshot`  
+    Query Format:  
     `SELECT {col} FROM doordabiz_snapshot.doordabiz_snapshot.{table_name}`
 
 2) **Ledgers**
@@ -111,9 +111,9 @@ All tables can be joined by `company_number` column
     AND A.action = B.action;
     ```
 
-    Catalog = `doordabiz_ledger`
-    Schema = `doordabiz_ledger`
-    Query Format:
+    Catalog = `doordabiz_ledger`  
+    Schema = `doordabiz_ledger`  
+    Query Format:  
     `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
 
 
@@ -126,8 +126,8 @@ All tables can be joined by `postcode` column.
     Data at the point in time with each row identifying a unique entry.
     
     Catalog = `doordastats_snapshot`  
-    Schema = `doordastats_snapshot`
-    Query Format:
+    Schema = `doordastats_snapshot`  
+    Query Format:  
     `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
 
 
