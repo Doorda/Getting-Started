@@ -5,7 +5,8 @@
 ### DoordaBiz
 All tables can be joined by `company_number` column
 
-1) *Snapshots*
+1) **Snapshots**
+
     Data at the point in time with each row identifying a unique entry.
 
     
@@ -17,7 +18,8 @@ All tables can be joined by `company_number` column
     Catalog = `doordabiz_snapshot`  
     Schema = `doordabiz_snapshot`
 
-2) *Ledgers*
+2) **Ledgers**
+
     Ledgers are records of transactions for each unique entry.
     Each unique entries will have an `insert` action into the ledger followed subsequently by `update`/`delete`
     (deletes are often not done unless it is an error made by the source provider)
@@ -26,27 +28,40 @@ All tables can be joined by `company_number` column
     (Currently the Ledger for ICO Register is not available, as the data is no longer published)
 
     Key Columns:
-        - `values`
-            Given as a key value pair and shows how the Snapshot entry looks at the indicated date.
-            Key maps to column names of the Snapshot table.
-        - `urn`
-            Fixed unique row identifier of Snapshot
-        - `action`
-            Description of data manipulation type. Can be insert/update/delete
-        - `change_date`
-            Same as `change_date` column in snapshot tables.
-            Refers to the date that the entry was added/amended by the source provider
-        - `date_added`
-            Date the entry was added into the Ledger.
-            Typically the date after the source provider release the data.
-        - `orders`
-            The order that the entry was amended, if multiple amendments were made to an entry on the same day.
-            For example, if `ABC LIMITED` filed for a change of address and change of company name on 2019-01-01,
-            the `date_added` will be the same for both entries in the ledger but the change of address wil have `orders=1`
-            and change_of_name will have `orders=2`, depending on which entry was filed with the source provider first.
+
+    - `values`
+
+        Given as a key value pair and shows how the Snapshot entry looks at the indicated date.
+        Key maps to column names of the Snapshot table.
+
+    - `urn`
+        Fixed unique row identifier of Snapshot
+
+    - `action`
+
+        Description of data manipulation type. Can be insert/update/delete
+
+    - `change_date`
+
+        Same as `change_date` column in snapshot tables.
+        Refers to the date that the entry was added/amended by the source provider.
+
+    - `date_added`
+
+        Date the entry was added into the Ledger.
+        Typically the date after the source provider release the data.
+
+    - `orders`
+
+        The order that the entry was amended, if multiple amendments were made to an entry on the same day.
+
+        For example, if `ABC LIMITED` filed for a change of address and change of company name on 2019-01-01,
+        the `date_added` will be the same for both entries in the ledger but the change of address wil have `orders=1`
+        and change_of_name will have `orders=2`, depending on which entry was filed with the source provider first.
 
 
     Example:
+
     In the Company Profile table, an incorporation will be shown as a `insert` and
     subsequent change of address, status, sic codes etc will be shown as `update`.
 
@@ -65,6 +80,7 @@ All tables can be joined by `company_number` column
     2) Recreate Snapshot for Company Profile table on 2019-03-01
 
         *Warning*:
+
         Recreating the Snapshot from the Ledger is a process intensive task.
         Hence large tables like the Company Filings (157 million rows), Company Profile (12 million rows)
         may take a some time to process.
