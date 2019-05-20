@@ -5,6 +5,7 @@ ANSI SQL is supported as standard.
 
 ### Synopsis
 
+    [ WITH with_query [, ...] ]
     SELECT [ ALL | DISTINCT ] select_expr [, ...]
     [ FROM from_item [, ...] ]
     [ WHERE condition ]
@@ -16,55 +17,94 @@ ANSI SQL is supported as standard.
 
 ### Parameters
 
-1) `[ ALL | DISTINCT ] select_expr [, ...]`
+1) `WITH` clase
+    The `WITH` clause defines named relations for use within a query.
+    It allows flattening nested queries or simplifying subqueries.
+    For example, the following queries are equivalent:
 
-`select_expr` determines the rows to be selected.
+    ```sql
+    SELECT a, b
+    FROM (
+      SELECT a, MAX(b) AS b FROM t GROUP BY a
+    ) AS x;
 
-`ALL` is the default. Using `ALL` is treated the same as if it were omitted; all rows for all columns are selected and duplicates are kept.
 
-Use `DISTINCT` to return only distinct values when a column contains duplicate values.
+    WITH x AS (SELECT a, MAX(b) AS b FROM t GROUP BY a)
+    SELECT a, b FROM x;
+    ```
 
-2) `[ FROM from_item [, ...] ]`
+    Works with multiple subqueries:
 
-Indicates the input of the query, where `from_item` can be:
+    ```sql
+    WITH
+    t1 AS (SELECT a, MAX(b) AS b FROM x GROUP BY a),
+    t2 AS (SELECT a, AVG(d) AS d FROM y GROUP BY a)
+    SELECT t1.*, t2.*
+    FROM t1
+    JOIN t2 ON t1.a = t2.a;
+    ```
+
+    And, relations within a `WITH` clause can be chained:
+
+    ```sql
+    WITH
+    x AS (SELECT a FROM t),
+    y AS (SELECT a AS b FROM x),
+    z AS (SELECT b AS c FROM y)
+    SELECT c FROM z;
+    ```
+
+
+
+2) `[ ALL | DISTINCT ] select_expr [, ...]`
+
+    `select_expr` determines the rows to be selected.
+
+    `ALL` is the default. Using `ALL` is treated the same as if it were omitted; all rows for all columns are selected and duplicates are kept.
+
+    Use `DISTINCT` to return only distinct values when a column contains duplicate values.
+
+3) `[ FROM from_item [, ...] ]`
+
+    Indicates the input of the query, where `from_item` can be:
 
 - `{catalog_name}.{schema_name}.{table_name}`
 
-OR
+    OR
 
 - `join_type from_item [ ON join_condition | USING ( join_column [, ...] ) ]`
 
-where `join_type` is one of:
+    where `join_type` is one of:
 
-    [ INNER ] JOIN
-    LEFT [ OUTER ] JOIN
-    RIGHT [ OUTER ] JOIN
-    FULL [ OUTER ] JOIN
-    CROSS JOIN
+        [ INNER ] JOIN
+        LEFT [ OUTER ] JOIN
+        RIGHT [ OUTER ] JOIN
+        FULL [ OUTER ] JOIN
+        CROSS JOIN
 
-3) `[ WHERE condition ]`
+4) `[ WHERE condition ]`
 
-Filters results according to `condition`
+    Filters results according to `condition`
 
-4) `[ GROUP BY [ ALL | DISTINCT ] grouping_element [, ...] ]`
+5) `[ GROUP BY [ ALL | DISTINCT ] grouping_element [, ...] ]`
 
-Divides the output of statement into rows with matching values. 
+    Divides the output of statement into rows with matching values.
 
-5) `[ HAVING condition]`
+6) `[ HAVING condition]`
 
-Used with `GROUP BY` clause to control which groups are selected
+    Used with `GROUP BY` clause to control which groups are selected
 
-6) `[ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] select ]`
+7) `[ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] select ]`
 
-Combines the results of more than one `SELECT` query into a single query. 
+    Combines the results of more than one `SELECT` query into a single query.
 
-7) `[ ORDER BY expression [ ASC | DESC ] [, ...] ]`
+8) `[ ORDER BY expression [ ASC | DESC ] [, ...] ]`
 
-Sorts result by one or more expression.
+    Sorts result by one or more expression.
 
-8) `[ LIMIT [ count | ALL ] ]`
+9) `[ LIMIT [ count | ALL ] ]`
 
-Restricts the number of rows in result.
+    Restricts the number of rows in result.
 
 ### Examples
 
@@ -81,6 +121,35 @@ Restricts the number of rows in result.
     WHERE crime.period >= 201801 and crime.postcode = 'CA7 4DP';
     ORDER BY crime.period
     LIMIT 10;
+
+### Misc
+
+- Table Sample
+    - `BERNOULLI`
+        Each row is selected to be in the table sample with a probability of
+        the sample percentage. When a table is sampled using the Bernoulli method,
+        all physical blocks of the table are scanned and certain rows are skipped
+        (based on a comparison between the sample percentage and a random value
+        calculated at runtime).
+        The probability of a row being included in the result is independent from
+        any other row. This does not reduce the time required to read the sampled
+        table from disk. It may have an impact on the total query time if the sampled
+        output is processed further.
+
+        QUERY FORMAT:
+        ```sql
+        SELECT *
+        FROM table_name
+        TABLESAMPLE BERNOULLI ({percent in integer});
+        ```
+
+        Table sample of `10%` of rows from `register_company_profile` in DoordaBiz:
+        ```sql
+        SELECT *
+        FROM doordabiz_snapshot.doordabiz_snapshot.register_company_profile
+        TABLESAMPLE BERNOULLI (10);
+        ```
+
 
 ## SHOW
 
@@ -101,6 +170,8 @@ If {catalog} is not specified, schema is resolved relative to current catalog.
 List columns in table along with data type and other attributes.
 
     SHOW COLUMNS FROM {catalog}.{schema}.{table};
+    DESCRIBE {catalog}.{schema}.{table};
+
 
 ## USE
 
@@ -113,6 +184,7 @@ Update session to use specific catalog and schema. If catalog is not specified, 
     
     USE doordabiz_snapshot.doordabiz_snapshot;
     USE doordabiz_snapshot;
+
 
 
 Back to [Tables of Content](../README.md#getting-started-guide-to-host)

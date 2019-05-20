@@ -16,6 +16,8 @@
 3. [Query Syntax](syntax/README.md#syntax)
 4. [Data Types](dataTypes/README.md#supported-data-types)
 5. [Functions and Operators](functionsOperators/README.md#functions-and-operators)
+6. [Terminologies](terms/README.md#terms)
+7. [Query Tuning](queryTuning/README.md#query-tuning)
 
 ## Concepts
 
