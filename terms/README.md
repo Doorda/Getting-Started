@@ -17,6 +17,8 @@ All tables can be joined by `company_number` column
     
     Catalog = `doordabiz_snapshot`  
     Schema = `doordabiz_snapshot`
+    Query Format:
+    `SELECT {col} FROM doordabiz_snapshot.doordabiz_snapshot.{table_name}`
 
 2) **Ledgers**
 
@@ -35,7 +37,7 @@ All tables can be joined by `company_number` column
         Key maps to column names of the Snapshot table.
 
     - `urn`
-    
+
         Fixed unique row identifier of Snapshot
 
     - `action`
@@ -109,9 +111,12 @@ All tables can be joined by `company_number` column
     AND A.action = B.action;
     ```
 
-
     Catalog = `doordabiz_ledger`
     Schema = `doordabiz_ledger`
+    Query Format:
+    `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
+
+
 
 
 ### DoordaStats
@@ -122,6 +127,8 @@ All tables can be joined by `postcode` column.
     
     Catalog = `doordastats_snapshot`  
     Schema = `doordastats_snapshot`
+    Query Format:
+    `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
 
 
 
