@@ -18,6 +18,7 @@ ANSI SQL is supported as standard.
 ### Parameters
 
 1) `WITH` clause
+
     The `WITH` clause defines named relations for use within a query.
     It allows flattening nested queries or simplifying subqueries.
     For example, the following queries are equivalent:
