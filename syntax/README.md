@@ -17,7 +17,7 @@ ANSI SQL is supported as standard.
 
 ### Parameters
 
-1) `WITH` clase
+1) `WITH` clause
     The `WITH` clause defines named relations for use within a query.
     It allows flattening nested queries or simplifying subqueries.
     For example, the following queries are equivalent:
@@ -108,19 +108,21 @@ ANSI SQL is supported as standard.
 
 ### Examples
 
-    // Gets crime from January 2018, 
-    // Join with rental value by postcode
-    // Filter by postcode 
-    // Order by crime period
-    // Limit to 10 results
-    
-    SELECT crime.postcode, crime.period, rent.household_rental_value_1_bedroom
-    FROM doordastats_snapshot.doordastats_snapshot.eng_area_reported_crime crime
-    LEFT JOIN doordastats_snapshot.doordastats_snapshot.eng_household_rental_value rent
-    ON crime.postcode = rent.postcode
-    WHERE crime.period >= 201801 and crime.postcode = 'CA7 4DP';
-    ORDER BY crime.period
-    LIMIT 10;
+```sql
+// Gets crime from January 2018,
+// Join with rental value by postcode
+// Filter by postcode
+// Order by crime period
+// Limit to 10 results
+
+SELECT crime.postcode, crime.period, rent.household_rental_value_1_bedroom
+FROM doordastats_snapshot.doordastats_snapshot.eng_area_reported_crime crime
+LEFT JOIN doordastats_snapshot.doordastats_snapshot.eng_household_rental_value rent
+ON crime.postcode = rent.postcode
+WHERE crime.period >= 201801 and crime.postcode = 'CA7 4DP';
+ORDER BY crime.period
+LIMIT 10;
+```
 
 ### Misc
 
