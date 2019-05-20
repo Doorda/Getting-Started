@@ -253,6 +253,7 @@
 ## Regular Expression
 
 - **regexp_extract_all**(*string*,*pattern*) -> `array(varchar)`
+
     Returns the substrings matched by regex `pattern` in `string`
 
     ```sql
@@ -261,6 +262,7 @@
 
 
 - **regexp_extract_all**(*string*,*pattern*, *group*) -> `array(varchar)`
+
     Finds all occurrences of the regex `pattern` in `string` and returns `group`
 
     ```sql
@@ -269,6 +271,7 @@
 
 
 - **regexp_extract**(*string*, *pattern*) -> `varchar`
+
     Returns the first substring matched by the regex `pattern` in `string`
 
     ```sql
@@ -277,6 +280,7 @@
 
 
 - **regexp_extract**(*string*, *pattern*, *group*) -> `varchar`
+
     Finds the first occurrence of the regex `pattern` in `string` and returns the `group`
 
     ```sql
@@ -285,6 +289,7 @@
 
 
 - **regexp_like**(*string*, *pattern*) -> `boolean`
+
     Evaluates the regex `pattern` and determines if it is contained within `string`.
 
     This is similar to the `LIKE` operator but performs a `contains` operation` rather than a `match` operation.
@@ -295,6 +300,7 @@
 
 
 - **regexp_replace**(*string*, *pattern*) -> `varchar`
+
     Removes every instance of the substring matched by the regex `pattern` from `string`:
 
     ```sql
@@ -303,6 +309,7 @@
 
 
 - **regexp_replace**(*string*, *pattern*, *replacement*) -> `varchar`
+
     Removes every instance of the substring matched by the regex `pattern` from `string` with `replacement`
 
     ```sql
@@ -311,6 +318,7 @@
 
 
 - **regexp_replace**(*string*, *pattern*, *function*) -> `varchar`
+
     Removes every instance of the substring matched by the regex `pattern` from `string` using `function`
 
     ```sql
@@ -319,10 +327,11 @@
 
 
 - **regexp_split**(*string*, *pattern*) -> `array(varchar)`
+
     Splits `string` using the regex `pattern` and returns an array. Trailing empty strings are preserved.
 
     ```sql
-    SELECT regexp_split('1a 2b 14m', '\s*[a-z]+\s*'); -- [1, 2, 14, ]
+    SELECT regexp_split('1a 2b 14m', '\s*[a-z]+\s*'); -- [1, 2, 14]
     ```
 
 
