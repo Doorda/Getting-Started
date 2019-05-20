@@ -5,7 +5,7 @@
 ### DoordaBiz
 All tables can be joined by `company_number` column
 
-1) Snapshots  
+1) *Snapshots*
     Data at the point in time with each row identifying a unique entry.
 
     
@@ -17,13 +17,13 @@ All tables can be joined by `company_number` column
     Catalog = `doordabiz_snapshot`  
     Schema = `doordabiz_snapshot`
 
-2) Ledgers
+2) *Ledgers*
     Ledgers are records of transactions for each unique entry.
     Each unique entries will have an `insert` action into the ledger followed subsequently by `update`/`delete`
     (deletes are often not done unless it is an error made by the source provider)
 
-    All tables in Snapshots will have an equivalent Ledger table to track changes. (Currently the Ledger for ICO Register
-    is not available, as the data is no longer published)
+    All tables in Snapshots will have an equivalent Ledger table to track changes.
+    (Currently the Ledger for ICO Register is not available, as the data is no longer published)
 
     Key Columns:
         - `values`
@@ -64,7 +64,7 @@ All tables can be joined by `company_number` column
 
     2) Recreate Snapshot for Company Profile table on 2019-03-01
 
-        Warning:
+        *Warning*:
         Recreating the Snapshot from the Ledger is a process intensive task.
         Hence large tables like the Company Filings (157 million rows), Company Profile (12 million rows)
         may take a some time to process.

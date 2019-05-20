@@ -57,7 +57,7 @@ Captures boolean values `true` or `false`
 - `timestamp` -
     - Instant in time that includes date and time of day without timezone.
 
-        `Example: `TIMESTAMP '2000-01-01 00:00:00.00'`
+        Example: `TIMESTAMP '2000-01-01 00:00:00.00'`
 
     - Instant in time that includes date and time of day with timezone.
 

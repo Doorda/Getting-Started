@@ -15,7 +15,7 @@ SELECT * FROM table_name ORDER BY date_added LIMIT 1000;
 ```
 
 Bad:
-```
+```SQLSQL
 SELECT * FROM table_name ORDER BY date_added;
 ```
 
