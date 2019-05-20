@@ -35,6 +35,7 @@ All tables can be joined by `company_number` column
         Key maps to column names of the Snapshot table.
 
     - `urn`
+    
         Fixed unique row identifier of Snapshot
 
     - `action`
@@ -79,7 +80,7 @@ All tables can be joined by `company_number` column
 
     2) Recreate Snapshot for Company Profile table on 2019-03-01
 
-        *Warning*:
+        **Warning**:
 
         Recreating the Snapshot from the Ledger is a process intensive task.
         Hence large tables like the Company Filings (157 million rows), Company Profile (12 million rows)
