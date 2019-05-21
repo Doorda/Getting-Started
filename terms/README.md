@@ -28,6 +28,12 @@ All tables can be joined by `company_number` column
     All tables in Snapshots will have an equivalent Ledger table to track changes.
     (Currently the Ledger for ICO Register is not available, as the data is no longer published)
 
+    Example:
+
+    In the Company Profile table, an incorporation will be shown as a `insert` and
+    subsequent change of address, status, sic codes etc will be shown as `update`.
+
+
     Key Columns:
 
     - `values`
@@ -62,12 +68,7 @@ All tables can be joined by `company_number` column
         and change_of_name will have `orders=2`, depending on which entry was filed with the source provider first.
 
 
-    Example:
-
-    In the Company Profile table, an incorporation will be shown as a `insert` and
-    subsequent change of address, status, sic codes etc will be shown as `update`.
-
-    Use Case Query Examples:
+    **Use Case Query Examples**:
 
     1) Return how the Company Profile snapshot entry will look for company 09231049 on 2019-01-01
 
@@ -89,10 +90,19 @@ All tables can be joined by `company_number` column
         may take a some time to process.
 
     ```sql
-    SELECT "values"
-    FROM (SELECT "values", rank() over (partition by company_number order by date_added desc, change_date desc, orders desc) as rnk
-            FROM register_company_profile_ledger) as iq
-    WHERE (rnk = 1 or rand() < 0);
+    SELECT A."values"
+    FROM register_company_filing_ledger as A
+    INNER JOIN (SELECT urn, max(date_added) AS date_added,
+                max_by(change_date, date_added) AS change_date,
+                max_by(orders, date_added) AS orders,
+                max_by(action, date_added) AS action
+                FROM register_company_filing_ledger
+                WHERE date_added <= date '2019-03-01' GROUP BY 1) as B
+    ON A.urn = B.urn
+    AND A.date_added = B.date_added
+    AND A.orders = B.orders
+    AND A.change_date = B.change_date
+    AND A.action = B.action
     ```
 
     Catalog = `doordabiz_ledger`  
