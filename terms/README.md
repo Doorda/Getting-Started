@@ -1,4 +1,4 @@
-# Terms
+# Terminologies
 
 ## List of Products
 
