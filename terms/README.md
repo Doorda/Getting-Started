@@ -1,9 +1,13 @@
 # Terminologies
 
-## List of Products
+## Table Types
+
+Dependent on the source some of our datasets will have two variants. **Snapshot**, most recent view of the data, and **Ledger** list of transactions prior to the snapshot view. Snapshots are best used to view 'Current' status and Ledgers are best used to create historical views.
+
+Currently only our DoordaBiz product has a Ledger offering. 
 
 ### DoordaBiz
-All tables can be joined by `company_number` column
+DoordaBiz contains information on companies and associated appointments. All tables can be joined by `company_number` column
 
 1) **Snapshots**
 
@@ -113,7 +117,7 @@ All tables can be joined by `company_number` column
 
 
 ### DoordaStats
-All tables can be joined by `postcode` column.
+DoordaStats contains location based data. All tables can be joined by `postcode` column.
 
 1) Snapshots  
     Data at the point in time with each row identifying a unique entry.
