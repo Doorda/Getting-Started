@@ -36,7 +36,7 @@ Catalogs contains the schemas. In DoordaHost, there is a schema for each catalog
 
 Example:   
     Catalog = `doordastats_snapshot`  
-    Schema = `doordastats_snapshot`
+    Schema = `doordastats_snapshot`  
     Query Format:  `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
 
 
