@@ -17,8 +17,7 @@ All tables can be joined by `company_number` column
     
     Catalog = `doordabiz_snapshot`  
     Schema = `doordabiz_snapshot`  
-    Query Format:  
-    `SELECT {col} FROM doordabiz_snapshot.doordabiz_snapshot.{table_name}`
+    Query Format: `SELECT {col} FROM doordabiz_snapshot.doordabiz_snapshot.{table_name}`
 
 2) **Ledgers**
 
@@ -70,15 +69,16 @@ All tables can be joined by `company_number` column
 
     Use Case Query Examples:
 
-    1) Return how the Company Profile snapshot entry will look for company 04327367 on 2019-01-01
+    1) Return how the Company Profile snapshot entry will look for company 09231049 on 2019-01-01
 
     ```sql
-    SELECT "values"
-    FROM register_company_profile_ledger
-    WHERE company_number = '07203853' and date_added <= date '2019-01-01'
-    ORDER BY date_added desc, orders desc
-    LIMIT 1;
+   SELECT urn, date_added, change_date, orders, action, "values"
+    FROM (SELECT *, rank() over (partition by company_number order by date_added desc, change_date desc, orders desc) as rnk
+            FROM register_company_profile_ledger
+            WHERE company_number = '09231049' and date_added <= date '2019-01-01') as iq
+    WHERE (rnk = 1 or rand() < 0);
     ```
+
 
     2) Recreate Snapshot for Company Profile table on 2019-03-01
 
@@ -96,25 +96,15 @@ All tables can be joined by `company_number` column
 
 
     ```sql
-    SELECT A."values"
-    FROM register_company_profile_ledger as A
-    INNER JOIN (SELECT urn, max(date_added) AS date_added,
-                max_by(change_date, date_added) AS change_date,
-                max_by(orders, date_added) AS orders,
-                max_by(action, date_added) AS action
-                FROM register_company_profile_ledger
-                WHERE date_added <= date '2019-03-01' GROUP BY 1) as B
-    ON A.urn = B.urn
-    AND A.date_added = B.date_added
-    AND A.orders = B.orders
-    AND A.change_date = B.change_date
-    AND A.action = B.action;
+    SELECT "values"
+    FROM (SELECT "values", rank() over (partition by company_number order by date_added desc, change_date desc, orders desc) as rnk
+            FROM register_company_profile_ledger) as iq
+    WHERE (rnk = 1 or rand() < 0);
     ```
 
     Catalog = `doordabiz_ledger`  
     Schema = `doordabiz_ledger`  
-    Query Format:  
-    `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
+    Query Format:  `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
 
 
 
@@ -127,8 +117,7 @@ All tables can be joined by `postcode` column.
     
     Catalog = `doordastats_snapshot`  
     Schema = `doordastats_snapshot`  
-    Query Format:  
-    `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
+    Query Format:  `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
 
 
 

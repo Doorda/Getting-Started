@@ -334,6 +334,62 @@
     SELECT regexp_split('1a 2b 14m', '\s*[a-z]+\s*'); -- [1, 2, 14]
     ```
 
+## Window Functions
+
+Window functions perform calculations across rows of the query result.
+They run after the `HAVING` clause but before the `ORDER BY` clause.
+Invoking a window function requires special syntax using the `OVER` clause to specify the window. A window has three components:
+
+- The partition specification, which separates the input rows into different partitions.
+    This is analogous to how the `GROUP BY` clause separates rows into different groups for aggregate functions.
+- The ordering specification, which determines the order in which input rows will be processed by the window function.
+- The window frame, which specifies a sliding window of rows to be processed by the function for a given row.
+    If the frame is not specified, it defaults to RANGE UNBOUNDED PRECEDING, which is the same as RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW. This frame contains all rows from the start of the partition up to the last peer of the current row.
+
+For example, the following query ranks orders for each clerk by price:
+
+```sql
+SELECT orderkey, clerk, totalprice,
+   rank() OVER (PARTITION BY clerk
+                ORDER BY totalprice DESC) AS rnk
+FROM orders
+ORDER BY clerk, rnk
+```
+
+### Aggregate Functions
+
+All [Aggregate Functions](!) can be used as a window function by adding the `OVER` clause.
+
+
+For example, the following query produces a rolling sum of order prices by day for each clerk:
+
+```sql
+SELECT clerk, orderdate, orderkey, totalprice,
+       sum(totalprice) OVER (PARTITION BY clerk
+                             ORDER BY orderdate) AS rolling_sum
+FROM orders
+ORDER BY clerk, orderdate, orderkey
+```
+
+### Ranking Functions
+
+- **row_number**() -> `bigint`
+
+    Returns a unique, sequential number for each row, starting with one, according to the ordering of rows within the window partition.
+
+- **rank**() -> `bigint`
+
+    Returns the rank of a value in a group of values. The rank is one plus the number of rows preceding the row that are not peer with the row.
+    Thus, tie values in the ordering will produce gaps in the sequence. The ranking is performed for each window partition.
+
+- **dense_rank**() -> `bigint`
+
+    Returns the rank of a value in a group of values. This is similar to rank(), except that tie values do not produce gaps in the sequence.
+
+
+
+
+
 
 
 
