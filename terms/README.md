@@ -88,13 +88,6 @@ All tables can be joined by `company_number` column
         Hence large tables like the Company Filings (157 million rows), Company Profile (12 million rows)
         may take a some time to process.
 
-        Subquery:
-         - Groups ledger by urn
-         - Selects maximum `date_added`, maximum of `change_date`, `order` and `action` associated
-         with the maximum value of `date_added`
-         - Filter by `date_added` on or before 2019-03-01
-
-
     ```sql
     SELECT "values"
     FROM (SELECT "values", rank() over (partition by company_number order by date_added desc, change_date desc, orders desc) as rnk
