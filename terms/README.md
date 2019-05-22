@@ -100,7 +100,7 @@ DoordaBiz contains information on companies and associated appointments. All tab
                 max_by(change_date, date_added) AS change_date,
                 max_by(orders, date_added) AS orders,
                 max_by(action, date_added) AS action
-                FROM register_company_filing_ledger
+                FROM register_company_profile_ledger
                 WHERE date_added <= date '2019-03-01' GROUP BY 1) as B
     ON A.urn = B.urn
     AND A.date_added = B.date_added
