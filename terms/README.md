@@ -2,7 +2,7 @@
 
 ## Table Types
 
-Dependent on the source some of our datasets will have two variants. **Snapshot**, most recent view of the data, and **Ledger** list of transactions prior to the snapshot view. Snapshots are best used to view 'Current' status and Ledgers are best used to create historical views.
+Dependent on the source some of our datasets will have two variants. **Snapshot**, most recent view of the data, and **Ledger** list of transactions up to the snapshot view. Snapshots are best used to view 'Current' status and Ledgers are best used to create historical views.
 
 Currently only our DoordaBiz product has a Ledger offering. 
 
