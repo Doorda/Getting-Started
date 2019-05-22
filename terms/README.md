@@ -95,7 +95,7 @@ DoordaBiz contains information on companies and associated appointments. All tab
 
     ```sql
     SELECT A."values"
-    FROM register_company_filing_ledger as A
+    FROM register_company_profile_ledger as A
     INNER JOIN (SELECT urn, max(date_added) AS date_added,
                 max_by(change_date, date_added) AS change_date,
                 max_by(orders, date_added) AS orders,
