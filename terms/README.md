@@ -2,7 +2,7 @@
 
 ## Table Types
 
-Dependent on the source some of our datasets will have two variants. **Snapshot**, most recent view of the data, and **Ledger** list of transactions up to the snapshot view. Snapshots are best used to view 'Current' status and Ledgers are best used to create historical views.
+Dependent on the source some of our datasets will have two variants. **Snapshot**, most recent view of the data, and **Ledger** list of transactions up to the snapshot view. Snapshots are best used to view `Current` status and Ledgers are best used to track historical changes.
 
 Currently only our DoordaBiz product has a Ledger offering. 
 
@@ -25,8 +25,8 @@ DoordaBiz contains information on companies and associated appointments. All tab
 
 2) **Ledgers**
 
-    Ledgers are records of transactions for each unique entry. Similar to the function of an accounting ledger, it is meant to maintain a verifiable history of the changes of each tables over time.
-    Each unique entries will have an `insert` action into the ledger followed subsequently by `update`/`delete`
+    Ledgers are records of transactions for each unique entry. Similar to the function of an accounting ledger, it is meant to maintain a verifiable, immutable history of the changes of each tables over time.
+    Each unique entry will have an `insert` action into the ledger followed subsequently by `update`/`delete`
     (deletes are often not done unless it is an error made by the source provider)
 
     All tables in Snapshots will have an equivalent Ledger table to track changes.
