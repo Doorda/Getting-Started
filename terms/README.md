@@ -26,6 +26,7 @@ DoordaBiz contains information on companies and associated appointments. All tab
 2) **Ledgers**
 
     Ledgers are records of transactions for each unique entry. Similar to the function of an accounting ledger, it is meant to maintain a verifiable, immutable history of the changes of each tables over time.
+    
     Each unique entry will have an `insert` action into the ledger followed subsequently by `update`/`delete`
     (deletes are often not done unless it is an error made by the source provider)
 
