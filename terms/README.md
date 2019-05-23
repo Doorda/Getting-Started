@@ -4,7 +4,7 @@
 
 Dependent on the source some of our datasets will have two variants. **Snapshot**, most recent view of the data, and **Ledger** list of transactions up to the snapshot view. Snapshots are best used to view `Current` status and Ledgers are best used to track historical changes.
 
-Currently only our DoordaBiz product has a Ledger offering. 
+Currently, only DoordaBiz product has a Ledger offering. 
 
 ### DoordaBiz
 DoordaBiz contains information on companies and associated appointments. All tables can be joined by `company_number` column
