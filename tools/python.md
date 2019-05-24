@@ -47,6 +47,7 @@ python setup.py install
 
 2) Execute Queries
     ```python
+    # SQL Statements do not need semi-colon at the end
     cursor.execute("SELECT * FROM table_name")
     
     # Returns generator of results
