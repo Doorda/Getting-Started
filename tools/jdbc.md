@@ -26,7 +26,7 @@ jdbc:doordahost://host.doorda.com:443/doordastats_snapshot/doordastats_snapshot
 | Name | Description           |
 |----------|-----------------------|
 | user        | Username to use for authentication and authorization.            |
-|password        | Password to use for LDAP authentication.          |
+|password        | Password to use for authentication.          |
 
 
 
