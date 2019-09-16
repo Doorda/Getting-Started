@@ -1,5 +1,44 @@
 # Database Clients
 
+## DBeaver Community Edition
+
+### Download
+
+#### JDBC Driver
+1) Installer
+    Download latest DBeaver installer from [here](https://dbeaver.io/download/2/)
+
+    Follow the instructions in [Guide](https://dbeaver.io/download/2/)
+    
+    Install latest version of Java from [here](https://java.com/en/download/) (currently Version 8 Update 211) 
+
+2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/raw/master/doordahost/jdbc/DoordaHostJDBC_309d.jar)
+
+### Steps
+
+1) Add New Driver in Device Manager
+
+    ![](../assets/dbeaver/dbeaver-driver.jpeg)
+    
+    Edit form with:  
+    >Driver Name: `DoordaHost`  
+    >Class Name: `io.prestosql.jdbc.PrestoDriver`  
+    >URL Templates: `jdbc:doordahost://host.doorda.com:443[/{database}]`  
+    >Libraries: Path to Downloaded JDBC driver (doordahost-jdbc-xxx.jar)    
+
+2) Connect to DoordaHost
+
+    ![](../assets/dbeaver/dbeaver-connect.jpeg)
+    
+    Edit form with:
+    >JDBC URL: `Leave as is`  
+    >Database/Schema: `{catalog}/{schema}` replace catalog and schema.  
+    >Username: (Included in your welcome email)   
+    >Password: (Included in your welcome email)   
+    
+    Click on `Test Connection` at the bottom right corner of the window.   
+    If connection is successful, click `Ok`.  
+
 ## SQLWorkbenchJ
 SQL Workbench/J is a free, DBMS-independent, cross-platform SQL query tool. It is written in Java and should run on any operating system that provides a Java Runtime Environment. Its main focus is on running SQL scripts (either interactively or as a batch) and export/import features.
 
