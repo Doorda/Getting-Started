@@ -120,7 +120,7 @@ SELECT crime.postcode, crime.period, rent.household_rental_value_1_bedroom
 FROM doordastats_snapshot.doordastats_snapshot.eng_area_reported_crime crime
 LEFT JOIN doordastats_snapshot.doordastats_snapshot.eng_household_rental_value rent
 ON crime.postcode = rent.postcode
-WHERE crime.period >= 201801 and crime.postcode = 'CA7 4DP';
+WHERE crime.period >= 201801 and crime.postcode = 'CA7 4DP'
 ORDER BY crime.period
 LIMIT 10;
 ```
