@@ -79,7 +79,7 @@ DoordaBiz contains information on companies and associated appointments. All tab
 
     ```sql
    SELECT urn, date_added, change_date, orders, action, "values"
-    FROM (SELECT *, rank() over (partition by company_number order by date_added desc, change_date desc, orders desc) as rnk
+    FROM (SELECT *, rank() over (partition by company_number order by date_added desc, change_date desc, orders desc, action desc) as rnk
             FROM register_company_profile_ledger
             WHERE company_number = '09231049' and date_added <= date '2019-01-01') as iq
     WHERE (rnk = 1 or rand() < 0);
