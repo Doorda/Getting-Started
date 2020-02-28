@@ -114,8 +114,20 @@ DoordaBiz contains information on companies and associated appointments. All tab
     Schema = `doordabiz_ledger`  
     Query Format:  `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
 
+### Public Procurement
 
+1) Snapshots  
+    Data at the point in time with each row identifying a unique entry.
+    
+    Catalog = `public_procurement_snapshot`  
+    Schema = `public_procurement_snapshot`  
+    Query Format:  `SELECT {col} FROM public_procurement_snapshot.public_procurement_snapshot.{table_name}`
 
+2) Ledger  
+    
+    Catalog = `public_procurement_ledger`  
+    Schema = `public_procurement_ledger`  
+    Query Format:  `SELECT {col} FROM public_procurement_ledger.public_procurement_ledger.{table_name}`
 
 ### DoordaStats
 DoordaStats contains location based data. All tables can be joined by `postcode` column.
@@ -126,9 +138,33 @@ DoordaStats contains location based data. All tables can be joined by `postcode`
     Catalog = `doordastats_snapshot`  
     Schema = `doordastats_snapshot`  
     Query Format:  `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
+    
+### DoordaProperty
+DoordaProperty contains address based data. All tables can be joined by `udprn` column.
+
+1) Snapshots  
+    Data at the point in time with each row identifying a unique entry.
+    
+    Catalog = `doordaproperty_snapshot`  
+    Schema = `doordaproperty_snapshot`  
+    Query Format:  `SELECT {col} FROM doordaproperty_snapshot.doordaproperty_snapshot.{table_name}`
+
+### Commercial Location
+Commercial Location contains address based data (in particular, property that pays commercial rates). All tables can be joined by `udprn` column.
+
+1) Snapshots  
+    Data at the point in time with each row identifying a unique entry.
+    
+    Catalog = `commercial_location_snapshot`  
+    Schema = `commercial_location_snapshot`  
+    Query Format:  `SELECT {col} FROM commercial_location_snapshot.commercial_location_snapshot.{table_name}`
 
 
-
+## Update Schedule
+|          | DoordaBiz         | Public Procurement | DoordaStats       | DoordaProperty     | Commercial Location |
+|----------|-------------------|--------------------|-------------------|--------------------|---------------------|
+| Snapshot | 2nd of each month | 2nd of each month  | 9th of each month | 15th of each month | 15th of each month  |
+| Ledger   | Every Saturday    | Every Saturday     | Not Available     | Not Available      | Not Available       |
 
 
 Back to [Tables of Content](../README.md#getting-started-guide-to-host)
