@@ -22,6 +22,11 @@ DoordaBiz contains information on companies and associated appointments. All tab
     Catalog = `doordabiz_snapshot`  
     Schema = `doordabiz_snapshot`  
     Query Format: `SELECT {col} FROM doordabiz_snapshot.doordabiz_snapshot.{table_name}`
+    
+    **Evaluation**
+    Catalog = `doordabiz_snapshot_evaluation`  
+    Schema = `doordabiz_snapshot_evaluation`  
+    Query Format: `SELECT {col} FROM doordabiz_snapshot_evaluation.doordabiz_snapshot_evaluation.{table_name}`
 
 2) **Ledgers**
 
@@ -113,6 +118,11 @@ DoordaBiz contains information on companies and associated appointments. All tab
     Catalog = `doordabiz_ledger`  
     Schema = `doordabiz_ledger`  
     Query Format:  `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
+    
+    **Evaluation**
+    Catalog = `doordabiz_ledger_evaluation`  
+    Schema = `doordabiz_ledger_evaluation`  
+    Query Format: `SELECT {col} FROM doordabiz_ledger_evaluation.doordabiz_ledger_evaluation.{table_name}`
 
 ### Public Procurement
 
@@ -122,12 +132,22 @@ DoordaBiz contains information on companies and associated appointments. All tab
     Catalog = `public_procurement_snapshot`  
     Schema = `public_procurement_snapshot`  
     Query Format:  `SELECT {col} FROM public_procurement_snapshot.public_procurement_snapshot.{table_name}`
+    
+    **Evaluation**
+    Catalog = `public_procurement_snapshot_evaluation`  
+    Schema = `public_procurement_snapshot_evaluation`  
+    Query Format: `SELECT {col} FROM public_procurement_snapshot_evaluation.public_procurement_snapshot_evaluation.{table_name}`
 
 2) Ledger  
     
     Catalog = `public_procurement_ledger`  
     Schema = `public_procurement_ledger`  
     Query Format:  `SELECT {col} FROM public_procurement_ledger.public_procurement_ledger.{table_name}`
+    
+    **Evaluation**
+    Catalog = `public_procurement_ledger_evaluation`  
+    Schema = `public_procurement_ledger_evaluation`  
+    Query Format: `SELECT {col} FROM public_procurement_ledger_evaluation.public_procurement_ledger_evaluation.{table_name}`
 
 ### DoordaStats
 DoordaStats contains location based data. All tables can be joined by `postcode` column.
@@ -139,6 +159,11 @@ DoordaStats contains location based data. All tables can be joined by `postcode`
     Schema = `doordastats_snapshot`  
     Query Format:  `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
     
+    **Evaluation**
+    Catalog = `doordastats_snapshot_evaluation`  
+    Schema = `doordastats_snapshot_evaluation`  
+    Query Format: `SELECT {col} FROM doordastats_snapshot_evaluation.doordastats_snapshot_evaluation.{table_name}`
+    
 ### DoordaProperty
 DoordaProperty contains address based data. All tables can be joined by `udprn` column.
 
@@ -148,6 +173,11 @@ DoordaProperty contains address based data. All tables can be joined by `udprn` 
     Catalog = `doordaproperty_snapshot`  
     Schema = `doordaproperty_snapshot`  
     Query Format:  `SELECT {col} FROM doordaproperty_snapshot.doordaproperty_snapshot.{table_name}`
+    
+    **Evaluation**
+    Catalog = `doordaproperty_snapshot_evaluation`  
+    Schema = `doordaproperty_snapshot_evaluation`  
+    Query Format: `SELECT {col} FROM doordaproperty_snapshot_evaluation.doordaproperty_snapshot_evaluation.{table_name}`
 
 ### Commercial Location
 Commercial Location contains address based data (in particular, property that pays commercial rates). All tables can be joined by `udprn` column.
@@ -158,6 +188,11 @@ Commercial Location contains address based data (in particular, property that pa
     Catalog = `commercial_location_snapshot`  
     Schema = `commercial_location_snapshot`  
     Query Format:  `SELECT {col} FROM commercial_location_snapshot.commercial_location_snapshot.{table_name}`
+    
+    **Evaluation**
+    Catalog = `commercial_location_snapshot_evaluation`  
+    Schema = `commercial_location_snapshot_evaluation`  
+    Query Format: `SELECT {col} FROM commercial_location_snapshot_evaluation.commercial_location_snapshot_evaluation.{table_name}`
 
 
 ## Update Schedule
