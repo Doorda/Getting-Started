@@ -118,11 +118,6 @@ DoordaBiz contains information on companies and associated appointments. All tab
     Catalog = `doordabiz_ledger`  
     Schema = `doordabiz_ledger`  
     Query Format:  `SELECT {col} FROM doordabiz_ledger.doordabiz_ledger.{table_name}`
-    
-    **Evaluation**     
-    Catalog = `doordabiz_ledger_evaluation`  
-    Schema = `doordabiz_ledger_evaluation`  
-    Query Format: `SELECT {col} FROM doordabiz_ledger_evaluation.doordabiz_ledger_evaluation.{table_name}`
 
 ### Public Procurement
 
@@ -143,11 +138,6 @@ DoordaBiz contains information on companies and associated appointments. All tab
     Catalog = `public_procurement_ledger`  
     Schema = `public_procurement_ledger`  
     Query Format:  `SELECT {col} FROM public_procurement_ledger.public_procurement_ledger.{table_name}`
-    
-    **Evaluation**     
-    Catalog = `public_procurement_ledger_evaluation`       
-    Schema = `public_procurement_ledger_evaluation`       
-    Query Format: `SELECT {col} FROM public_procurement_ledger_evaluation.public_procurement_ledger_evaluation.{table_name}`
 
 ### DoordaStats
 DoordaStats contains location based data. All tables can be joined by `postcode` column.
