@@ -26,7 +26,7 @@ Captures boolean values `true` or `false`
 
 ### String
 
-- `varchar` - Variable length character data with optional length.
+- `varchar` - Variable length character data with optional length between 1 and 65535 characters
 
     Example: `VARCHAR` , `VARCHAR(20)`
 
