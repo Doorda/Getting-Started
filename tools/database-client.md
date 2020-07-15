@@ -39,7 +39,7 @@
     Click on `Test Connection` at the bottom right corner of the window.   
     If connection is successful, click `Ok`.  
 
-## SQLWorkbenchJ
+## SQLWorkbenchJ (No longer supported)
 SQL Workbench/J is a free, DBMS-independent, cross-platform SQL query tool. It is written in Java and should run on any operating system that provides a Java Runtime Environment. Its main focus is on running SQL scripts (either interactively or as a batch) and export/import features.
 
 ### Download
