@@ -9,7 +9,7 @@
 - [Tableau](tableau.md#tableau)
 
 ## Clients
-- [SQLWorkbenchJ](database-client.md#sqlworkbenchj) (Open Source)
+- [DBeaver Community Edition](database-client.md#dbeaver-community-edition)
 - [Jetbrains Datagrip](database-client.md#jetbrains-datagrip)
 
 More to be added soon..
