@@ -5,7 +5,7 @@
 ### Download
 
 #### JDBC Driver
-1) Installer
+1) Installer  
     Download latest DBeaver installer from [here](https://dbeaver.io/download/2/)
 
     Follow the instructions in [Guide](https://dbeaver.io/download/2/)
