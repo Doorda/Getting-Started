@@ -12,7 +12,7 @@
     
     Install latest version of Java from [here](https://java.com/en/download/) (currently Version 8 Update 211) 
 
-2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/raw/master/doordahost/jdbc/DoordaHostJDBC_309d.jar)
+2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/releases/download/329d/doordahost-jdbc-329d.jar)
 
 ### Steps
 
@@ -50,7 +50,7 @@ SQL Workbench/J is a free, DBMS-independent, cross-platform SQL query tool. It i
     
     Install latest version of Java from [here](https://java.com/en/download/) (currently Version 8 Update 211) 
 
-2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/raw/master/doordahost/jdbc/DoordaHostJDBC_309d.jar)
+2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/releases/download/329d/doordahost-jdbc-329d.jar)
 
 ### Requirements
 Java 7 or higher
@@ -117,7 +117,7 @@ Java 7 or higher
 ### Download
 
 #### JDBC Driver
-1) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/raw/master/doordahost/jdbc/DoordaHostJDBC_309d.jar)
+1) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/releases/download/329d/doordahost-jdbc-329d.jar)
 
 ### Steps
 
