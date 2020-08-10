@@ -10,8 +10,6 @@
 
     Follow the instructions in [Guide](https://dbeaver.io/download/2/)
     
-    Install latest version of Java from [here](https://java.com/en/download/) (currently Version 8 Update 211) 
-
 2) DoordaHost JDBC Connector from [here](https://github.com/Doorda/drivers-cli/releases/download/329d/doordahost-jdbc-329d.jar)
 
 ### Steps
