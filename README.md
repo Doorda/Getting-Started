@@ -53,6 +53,6 @@ Each table has a `urn` as the primary key column which can be used to identify u
 
 ### Metadata
 
-The metadata for the tables can be viewed via the [API](https://dev.doorda.com/#d906db60-4ad8-4e1c-96e2-22057ea39372) or using `SHOW COLUMNS FROM table` when connected to DoordaHost using a tool which supports SQL Queries.
+The metadata for the tables can be viewed using `SHOW COLUMNS FROM table` when connected to DoordaHost using a tool which supports SQL Queries.
 
  
