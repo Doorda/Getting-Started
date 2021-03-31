@@ -145,14 +145,14 @@ DoordaStats contains location based data. All tables can be joined by `postcode`
 1) Snapshots  
     Data at the point in time with each row identifying a unique entry.
     
-    Catalog = `doordastats_snapshot`  
-    Schema = `doordastats_snapshot`  
-    Query Format:  `SELECT {col} FROM doordastats_snapshot.doordastats_snapshot.{table_name}`
+    Catalog = `doordastats_v2_snapshot`  
+    Schema = `doordastats_v2_snapshot`  
+    Query Format:  `SELECT {col} FROM doordastats_v2_snapshot.doordastats_v2_snapshot.{table_name}`
     
     **Evaluation**     
-    Catalog = `doordastats_snapshot_evaluation`  
-    Schema = `doordastats_snapshot_evaluation`  
-    Query Format: `SELECT {col} FROM doordastats_snapshot_evaluation.doordastats_snapshot_evaluation.{table_name}`
+    Catalog = `doordastats_v2_snapshot_evaluation`  
+    Schema = `doordastats_v2_snapshot_evaluation`  
+    Query Format: `SELECT {col} FROM doordastats_v2_snapshot_evaluation.doordastats_v2_snapshot_evaluation.{table_name}`
     
 ### DoordaProperty
 DoordaProperty contains address based data. All tables can be joined by `udprn` column.
