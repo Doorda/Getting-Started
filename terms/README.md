@@ -189,7 +189,7 @@ Commercial Location contains address based data (in particular, property that pa
 |          | DoordaBiz         | Public Procurement | DoordaStats       | DoordaProperty     | Commercial Location |
 |----------|-------------------|--------------------|-------------------|--------------------|---------------------|
 | Snapshot | 2nd of each month | 2nd of each month  | 9th of each month | 15th of each month | 15th of each month  |
-| Ledger   | Every Saturday    | Every Saturday     | Not Available     | Not Available      | Not Available       |
+| Ledger   | Every Saturday    | Every Saturday     | Not Available     | Every Tuesday      | Every Tuesday       |
 
 
 Back to [Tables of Content](../README.md#getting-started-guide-to-host)
